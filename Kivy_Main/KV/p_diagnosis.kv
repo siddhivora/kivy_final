@@ -1,0 +1,260 @@
+<DiagnosisScreen>:
+
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.size
+
+        FloatLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,0,0.3
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,420)
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,45)
+
+        FloatLayout:
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Patient id:[/color][/font]"
+                size_hint: (None,None)
+                pos: (55,415)
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Name:[/color][/font]"
+                size_hint: (None,None)
+                pos: (43,395)
+            Label:
+                id: p_id
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (120,415)
+            Label:
+                id: p_name
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (95,395)
+
+            Button:
+                size_hint: (None,None)
+                size: (50,50)
+                background_color: [255,255,255,0]
+                pos: (7,430)
+                on_press: root.manager.current = 'Home_Screen'
+                canvas:
+                    Rectangle:
+                        source: 'Resources/home_btn.png'
+                        size: (50,50)
+                        pos: self.pos
+
+            Button:
+                id: back_btn
+                size_hint: (None,None)
+                height: 40
+                width: 40
+                background_color: [255,255,255,0]
+                pos: (10,4)
+                on_press: root.manager.current = 'Test_Screen'
+                canvas:
+                    Rectangle:
+                        source:"Resources/back_btn.png"
+                        pos: self.pos
+                        size: self.size
+
+            Button:
+                id: next_btn
+                size_hint: (None,None)
+                height: 40
+                width: 40
+                background_color: [255,255,255,0]
+                pos: (750,4)
+                on_press: root.manager.current = 'Test_Screen'
+                canvas:
+                    Rectangle:
+                        source:"next_btn.png"
+                        pos: self.pos
+                        size: self.size
+
+            Button:
+                id: exit_btn
+                size_hint: (None,None)
+                height: 20
+                width: 20
+                background_color: [1,1,1,0]
+                on_press : root.exit_prog()
+                pos: (763,450)
+                canvas:
+                    Rectangle:
+                        source:"Resources/exit_btn.png"
+                        pos: self.pos
+                        size: self.size
+
+
+    FloatLayout:
+
+        Label:
+            text: '[color=#0000ff][b]DIAGNOSIS[/b][/color]'
+            font_size: 23
+            pos: (380,400)
+            markup: True
+            size_hint: (None,None)
+
+        Label:
+            text: "[color=#0000ff][b]Age:[/b][/color]"
+            size_hint: (None, None)
+            pos: (0,330)
+            font_size: 18
+            markup: True
+
+
+        Label:
+            id: lbl_age
+            text: "[color=#000000][/color]"
+            size_hint: (None, None)
+            pos: (40,330)
+            font_size: 18
+            markup: True
+
+        Label:
+            text: "[color=#0000ff][b]Smoking History:[/b][/color]"
+            size_hint: (None, None)
+            pos: (49,295)
+            font_size: 18
+            markup: True
+
+        CheckBox:
+            group: 'A'
+            color: [0,0,0,1]
+            size_hint: (None, None)
+            pos: (150,295)
+
+        Label:
+            text: "[color=#000000]Yes[/color]"
+            size_hint: (None, None)
+            pos: (180,295)
+            font_size: 18
+            markup: True
+
+        CheckBox:
+            group: 'A'
+            color: [0,0,0,1]
+            size_hint: (None, None)
+            pos: (250,295)
+
+        Label:
+            text: "[color=#000000]No[/color]"
+            size_hint: (None, None)
+            pos: (280,295)
+            font_size: 18
+            markup: True
+
+        Label:
+            text: "[color=#0000ff][b]Symptoms:[/b][/color]"
+            size_hint: (None, None)
+            pos: (380,295)
+            font_size: 18
+            markup: True
+
+        CheckBox:
+            color: [0,0,0,1]
+            size_hint: (None, None)
+            pos: (450,295)
+        CheckBox:
+            color: [0,0,0,1]
+            size_hint: (None, None)
+            pos: (450,255)
+        CheckBox:
+            color: [0,0,0,1]
+            size_hint: (None, None)
+            pos: (450,215)
+        CheckBox:
+            color: [0,0,0,1]
+            size_hint: (None, None)
+            pos: (450,175)
+
+        Label:
+            text: "[color=#0000ff]Dyspnea[/color]"
+            size_hint: (None, None)
+            pos: (500,295)
+            font_size: 18
+            markup: True
+        Label:
+            text: "[color=#0000ff]Chronic Cough[/color]"
+            size_hint: (None, None)
+            pos: (524,255)
+            font_size: 18
+            markup: True
+        Label:
+            text: "[color=#0000ff]Sputum Production[/color]"
+            size_hint: (None, None)
+            pos: (543,215)
+            font_size: 18
+            markup: True
+        Label:
+            text: "[color=#0000ff]Wheezing[/color]"
+            size_hint: (None, None)
+            pos: (505,175)
+            font_size: 18
+            markup: True
+
+        Label:
+            text: "[color=#0000ff][b]Airflow Limitation:[/b][/color]"
+            size_hint: (None, None)
+            pos: (54,255)
+            font_size: 18
+            markup: True
+
+        Label:
+            text: "[color=#000000][b]Pre FEV1/FVC:[/b][/color]"
+            size_hint: (None, None)
+            pos: (40,210)
+            font_size: 16
+            markup: True
+
+        Label:
+            text: "[color=#000000][b]Post FEV1/FVC:[/b][/color]"
+            size_hint: (None, None)
+            pos: (43,180)
+            font_size: 16
+            markup: True
+
+        Label:
+            text: "[color=#000000]Airflow Limitation is [/color][color=#ff0000][b][u]not reversible.[/u][/b][/color]"
+            size_hint: (None, None)
+            pos: (138,145)
+            font_size: 20
+            markup: True
+        Label:
+            text: "[color=#0000ff][b]Diagnosis Result:[/b][/color]"
+            size_hint: (None, None)
+            pos: (49,90)
+            font_size: 18
+            markup: True
+        Label:
+            text: "[color=#0000ff][b]Disease Severity:[/b][/color]"
+            size_hint: (None, None)
+            pos: (405,90)
+            font_size: 18
+            markup: True
+
+        Label:
+            text: "[color=#ff0000][b]COPD[/b][/color]"
+            size_hint: (None, None)
+            pos: (19,55)
+            font_size: 30
+            markup: True
+
+        Label:
+            text: "[color=#000000][/color]"
+            size_hint: (None, None)
+            pos: (405,55)
+            font_size: 18
+            markup: True

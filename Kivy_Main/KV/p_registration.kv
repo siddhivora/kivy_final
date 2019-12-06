@@ -1,0 +1,113 @@
+<RegistrationScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.size
+
+        FloatLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,0,0.3
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,420)
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,45)
+
+        FloatLayout:
+            Label:
+                id: p_id
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (120,415)
+            Label:
+                id: p_name
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (95,395)
+
+        FloatLayout:
+            Button:
+                id: new_registration
+                bold: True
+                color: [0,0,0,1]
+                text: "                        New\n                   Registration"
+                size_hint: (None,None)
+                background_color: [1,1,1,0]
+                size: (200,100)
+                pos: (310,270)
+                on_press: root.manager.current = "Form_Screen"
+                canvas.before:
+                    Color:
+                        rgba: .5, 0.5,0.5 , .8
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+                canvas:
+                    Rectangle:
+                        source: "Resources/new_register.png"
+                        size: (80,80)
+                        pos: (319,280)
+
+            Button:
+                id: already_registered
+                bold: True
+                color: [0,0,0,1]
+                text: "                     Already\n                   Registered"
+                size_hint: (None,None)
+                size: (200,100)
+                pos: (310,120)
+                background_color: [1,1,1,0]
+                on_press: root.manager.current = "AlreadyRegistered_Screen"
+                canvas.before:
+                    Color:
+                        rgba: .5, 0.5,0.5 , .8
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+                canvas:
+                    Rectangle:
+                        source: "Resources/already_register.png"
+                        size: (80,80)
+                        pos: (319,130)
+            Button:
+                size_hint: (None,None)
+                size: (50,50)
+                background_color: [255,255,255,0]
+                pos: (7,430)
+                on_press: root.manager.current = "Home_Screen"
+                canvas:
+                    Rectangle:
+                        source: 'Resources/home_btn.png'
+                        size: (50,50)
+                        pos: self.pos
+
+    FloatLayout
+        Button:
+            id: exit_btn
+            size_hint: (None,None)
+            height: 20
+            width: 20
+            background_color: [1,1,1,0]
+            on_press : root.exit_prog()
+            pos: (763,450)
+            canvas:
+                Rectangle:
+                    source:"Resources/exit_btn.png"
+                    pos: self.pos
+                    size: self.size
+        Label:
+            markup: True
+            id: contact_us
+            text: "[font=OpenSans][color=#000000][u][ref=contact]Contact Us[/ref][/u][/color][/font]"
+            underlined : True
+            on_ref_press : root.manager.current = 'Contact_Screen'
+            size_hint: (None,None)
+            size: (50,50)
+            pos: (365,-5)

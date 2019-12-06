@@ -1,0 +1,148 @@
+<Svc1Screen>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.size
+
+        FloatLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,0,0.3
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,420)
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,45)
+
+        FloatLayout:
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Patient id:[/color][/font]"
+                size_hint: (None,None)
+                pos: (55,415)
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Name:[/color][/font]"
+                size_hint: (None,None)
+                pos: (43,395)
+            Label:
+                id: p_id
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (120,415)
+            Label:
+                id: p_name
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (95,395)
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]SVC[/color][/font]"
+                size_hint: (None,None)
+                size: (50,50)
+                pos: (385,425)
+                font_size: '23px'
+            Button:
+                size_hint: (None,None)
+                size: (50,50)
+                background_color: [255,255,255,0]
+                pos: (7,430)
+                on_press: root.manager.current = "Home_Screen"
+                canvas:
+                    Rectangle:
+                        source: 'Resources/home_btn.png'
+                        size: (50,50)
+                        pos: self.pos
+
+        FloatLayout:
+            Button:
+                background_color: [0,0,200,0.8]
+		        markup: True
+		        text: "[color=#ffffff][b]START[/b][/color]"
+		        size_hint: (None,None)
+		        height: 45
+                width: 100
+                pos: (250,100)
+            Button:
+                background_color: [0,0,200,0.8]
+		        markup: True
+		        text: "[color=#ffffff][b]STOP[/b][/color]"
+		        size_hint: (None,None)
+		        height: 45
+                width: 100
+                pos: (370,100)
+            Button:
+                background_color: [0,0,200,0.8]
+		        markup: True
+		        text: "[color=#ffffff][b]SUBMIT[/b][/color]"
+		        size_hint: (None,None)
+		        height: 45
+                width: 100
+                pos: (490,100)
+            Button:
+		        background_color: [1,1,1,0]
+		        size_hint: (None,None)
+		        height: 30
+                width: 30
+                pos: (750,250)
+                on_press: root.manager.current = "SvcInfo_Screen"
+                canvas:
+                    Rectangle:
+                        source:"Resources/info.png"
+                        size: self.size
+                        pos: self.pos
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]info[/color][/font]"
+                size_hint: (None,None)
+                italics: True
+                pos: (717,193)
+                font_size: '15px'
+            Graph:
+                size_hint: (None,None)
+                size: (650,230)
+                background_color: 0,0,0,1
+                pos: (70,170)
+
+    FloatLayout:
+        Button:
+            id: exit_btn
+            size_hint: (None,None)
+            height: 20
+            width: 20
+            background_color: [1,1,1,0]
+            on_press : root.exit_prog()
+            pos: (763,450)
+            canvas:
+                Rectangle:
+                    source:"Resources/exit_btn.png"
+                    pos: self.pos
+                    size: self.size
+        Button:
+            id: back_btn
+            size_hint: (None,None)
+            height: 40
+            width: 40
+            background_color: [255,255,255,0]
+            pos: (10,4)
+            on_press: root.manager.current = 'PrePostTest_Screen'
+            canvas:
+                Rectangle:
+                    source:"Resources/back_btn.png"
+                    pos: self.pos
+                    size: self.size
+        Label:
+            markup: True
+            id: contact_us
+            text: "[font=OpenSans][color=#000000][u][ref=contact]Contact Us[/ref][/u][/color][/font]"
+            underlined : True
+            on_ref_press : root.manager.current = 'Contact_Screen'
+            size_hint: (None,None)
+            size: (50,50)
+            pos: (365,-5)

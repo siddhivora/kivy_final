@@ -1,0 +1,518 @@
+<SvcScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.size
+
+        FloatLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,0,0.3
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,420)
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,45)
+
+        FloatLayout:
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Patient id:[/color][/font]"
+                size_hint: (None,None)
+                pos: (55,415)
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Name:[/color][/font]"
+                size_hint: (None,None)
+                pos: (43,395)
+            Label:
+                id: p_id
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (120,415)
+            Label:
+                id: p_name
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (95,395)
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]SVC[/color][/font]"
+                size_hint: (None,None)
+                size: (50,50)
+                pos: (385,425)
+                font_size: '23px'
+            Button:
+                size_hint: (None,None)
+                size: (50,50)
+                background_color: [255,255,255,0]
+                pos: (7,430)
+                on_press: root.manager.current = "Home_Screen"
+                canvas:
+                    Rectangle:
+                        source: 'Resources/home_btn.png'
+                        size: (50,50)
+                        pos: self.pos
+
+        FloatLayout:
+            Button:
+                background_color: [0,0,200,0.8]
+		        markup: True
+		        text: "[color=#ffffff][b]START[/b][/color]"
+		        size_hint: (None,None)
+		        height: 38
+                width: 80
+                pos: (40,290)
+                on_press: root.manager.current = "Svc1_Screen"
+            Button:
+                background_color: [0,0,200,0.8]
+		        markup: True
+		        text: "[color=#ffffff][b]Report[/b][/color]"
+		        size_hint: (None,None)
+		        height: 38
+                width: 80
+                pos: (670,195)
+            Button:
+                background_color: [0,0,200,0.8]
+		        markup: True
+		        text: "[color=#ffffff][b]Print[/b][/color]"
+		        size_hint: (None,None)
+		        height: 38
+                width: 80
+                pos: (670,150)
+            Button:
+                background_color: [0,0,200,0.8]
+		        markup: True
+		        text: "[color=#ffffff][b]History[/b][/color]"
+		        size_hint: (None,None)
+		        height: 38
+                width: 80
+                pos: (670,105)
+            Button:
+                background_color: [0,0,200,0.8]
+		        markup: True
+		        text: "[color=#ffffff][b]TEST[/b][/color]"
+		        size_hint: (None,None)
+		        height: 38
+                width: 80
+                pos: (670,60)
+
+        FloatLayout:
+            Label:
+                markup: True
+                text: "[color=#0000c8]Trial-1[/color]"
+                pos: (-170,150)
+                bold:True
+                font_size: '18px'
+            Label:
+                markup: True
+                text: "[color=#0000c8]Trial-2[/color]"
+                pos: (-80,150)
+                bold:True
+                font_size: '18px'
+            Label:
+                markup: True
+                text: "[color=#0000c8]Trial-3[/color]"
+                pos: (10,150)
+                bold:True
+                font_size: '18px'
+            Label:
+                markup: True
+                text: "[color=#0000c8]Actual[/color]"
+                pos: (100,150)
+                bold:True
+                font_size: '18px'
+            Label:
+                markup: True
+                text: "[color=#0000c8]Predicted[/color]"
+                pos: (190,150)
+                bold:True
+                font_size: '18px'
+
+    FloatLayout:
+        Label:
+            markup: True
+            text: "[color=#0000c8]ERV[/color]"
+            size_hint:(None,None)
+            pos: (50,140)
+            bold:True
+            font_size: '18px'
+        Label:
+            markup: True
+            text: "[color=#0000c8]IC[/color]"
+            size_hint:(None,None)
+            pos: (50,120)
+            bold:True
+            font_size: '18px'
+        Label:
+            markup: True
+            text: "[color=#0000c8]IRV[/color]"
+            size_hint:(None,None)
+            pos: (50,100)
+            bold:True
+            font_size: '18px'
+        Label:
+            markup: True
+            text: "[color=#0000c8]VC[/color]"
+            size_hint:(None,None)
+            pos: (50,80)
+            bold:True
+            font_size: '18px'
+        Label:
+            markup: True
+            text: "[color=#0000c8]VCex[/color]"
+            size_hint:(None,None)
+            pos: (50,60)
+            bold:True
+            font_size: '18px'
+        Label:
+            markup: True
+            text: "[color=#0000c8]VCin[/color]"
+            size_hint:(None,None)
+            pos: (50,40)
+            bold:True
+            font_size: '18px'
+        Label:
+            markup: True
+            text: "[color=#0000c8]TV[/color]"
+            size_hint:(None,None)
+            pos: (50,20)
+            bold:True
+            font_size: '18px'
+        Graph:
+            size_hint: (None,None)
+            size: (550,140)
+            background_color: 0,0,0,1
+            pos: (180,250)
+
+    StackLayout:
+        orientation: 'tb-lr'
+        pos: (180,140)
+        size_hint:(None,None)
+        padding:[-5,0]
+        spacing: [-20,-20]
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "0000"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "0000"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "0000"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "1000"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "1000"
+            bold:True
+            font_size: '15px'
+
+
+    StackLayout:
+        orientation: 'tb-lr'
+        pos: (180,120)
+        size_hint:(None,None)
+        padding:[-5,0]
+        spacing: [-20,-20]
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "1111"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "1111"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "1111"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "1111"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "1111"
+            bold:True
+            font_size: '15px'
+
+    StackLayout:
+        orientation: 'tb-lr'
+        pos: (180,100)
+        size_hint:(None,None)
+        padding:[-5,0]
+        spacing: [-20,-20]
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "2222"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "2222"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "2222"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "2222"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "2222"
+            bold:True
+            font_size: '15px'
+
+    StackLayout:
+        orientation: 'tb-lr'
+        pos: (180,80)
+        size_hint:(None,None)
+        padding:[-5,0]
+        spacing: [-20,-20]
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "3333"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "3333"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "3333"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "3333"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "3333"
+            bold:True
+            font_size: '15px'
+
+
+    StackLayout:
+        orientation: 'tb-lr'
+        pos: (180,60)
+        size_hint:(None,None)
+        padding:[-5,0]
+        spacing: [-20,-20]
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "5555"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "5555"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "5555"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "5555"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "5555"
+            bold:True
+            font_size: '15px'
+
+    StackLayout:
+        orientation: 'tb-lr'
+        pos: (180,40)
+        size_hint:(None,None)
+        padding:[-5,0]
+        spacing: [-20,-20]
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "6666"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "6666"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "6666"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "6666"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "6666"
+            bold:True
+            font_size: '15px'
+
+    StackLayout:
+        orientation: 'tb-lr'
+        pos: (180,20)
+        size_hint:(None,None)
+        padding:[-5,0]
+        spacing: [-20,-20]
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "7777"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "7777"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "7777"
+            bold:True
+            font_size: '15px'
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "7777"
+            bold:True
+            font_size: '15px'
+
+        Label:
+            markup: True
+            color: (0,0,0)
+            text: "7777"
+            bold:True
+            font_size: '15px'
+
+
+    FloatLayout:
+        Button:
+            id: exit_btn
+            size_hint: (None,None)
+            height: 20
+            width: 20
+            background_color: [1,1,1,0]
+            on_press : root.exit_prog()
+            pos: (763,450)
+            canvas:
+                Rectangle:
+                    source:"Resources/exit_btn.png"
+                    pos: self.pos
+                    size: self.size
+        Button:
+            id: back_btn
+            size_hint: (None,None)
+            height: 40
+            width: 40
+            background_color: [255,255,255,0]
+            pos: (10,4)
+            on_press: root.manager.current = 'PrePostTest_Screen'
+            canvas:
+                Rectangle:
+                    source:"Resources/back_btn.png"
+                    pos: self.pos
+                    size: self.size
+        Label:
+            markup: True
+            id: contact_us
+            text: "[font=OpenSans][color=#000000][u][ref=contact]Contact Us[/ref][/u][/color][/font]"
+            underlined : True
+            on_ref_press : root.manager.current = 'Contact_Screen'
+            size_hint: (None,None)
+            size: (50,50)
+            pos: (365,-5)

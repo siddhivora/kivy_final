@@ -1,0 +1,86 @@
+<CongratsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.size
+
+        FloatLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,0,0.3
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,420)
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,45)
+
+        FloatLayout:
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Patient id:[/color][/font]"
+                size_hint: (None,None)
+                pos: (55,415)
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Name:[/color][/font]"
+                size_hint: (None,None)
+                pos: (43,395)
+            Label:
+                id: p_id
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (120,415)
+            Label:
+                id: p_name
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (95,395)
+
+            Button:
+                size_hint: (None,None)
+                size: (50,50)
+                background_color: [255,255,255,0]
+                pos: (7,430)
+                on_press: root.manager.current = 'Home_Screen'
+                canvas:
+                    Rectangle:
+                        source: 'Resources/home_btn.png'
+                        size: (50,50)
+                        pos: self.pos
+
+            Image:
+                source: "E:\shivani\edit.gif"
+                size_hint: (None,None)
+                size: (360,350)
+                pos: (0,65)
+                allow_stretch: True
+
+            Image:
+                source: "E:\shivani\edit.gif"
+                size_hint: (None,None)
+                size: (360,350)
+                pos: (360,65)
+                allow_stretch: True
+
+            Image:
+                source: "E:\shivani\edit.gif"
+                size_hint: (None,None)
+                size: (360,350)
+                pos: (720,65)
+                allow_stretch: True
+
+
+
+            Label:
+                text: "[color=#0000ff]CONGRATULATIONS!!!\n      Your Lungs Are\n           Healthy...[/color]"
+                markup: True
+                font_size: 65
+                pos: (30,80)
+
+

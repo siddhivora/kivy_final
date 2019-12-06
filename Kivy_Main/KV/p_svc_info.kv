@@ -1,0 +1,140 @@
+<SvcInfoScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.size
+
+        FloatLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,0,0.3
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,420)
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,45)
+
+        FloatLayout:
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Patient id:[/color][/font]"
+                size_hint: (None,None)
+                pos: (55,415)
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Name:[/color][/font]"
+                size_hint: (None,None)
+                pos: (43,395)
+            Label:
+                id: p_id
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (120,415)
+            Label:
+                id: p_name
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (95,395)
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]SVC: Information[/color][/font]"
+                size_hint: (None,None)
+                size: (50,50)
+                pos: (385,425)
+                font_size: '23px'
+            Button:
+                size_hint: (None,None)
+                size: (50,50)
+                background_color: [255,255,255,0]
+                pos: (7,430)
+                on_press: root.manager.current = "Home_Screen"
+                canvas:
+                    Rectangle:
+                        source: 'Resources/home_btn.png'
+                        size: (50,50)
+                        pos: self.pos
+
+        FloatLayout:
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]The following is the correct procedure for performing a Slow Vital Capacity on a\npatient:[/color][/font]"
+                size_hint: (None,None)
+                pos: (333,325)
+                font_size: '19px'
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]1. Place nose clips on the patient.[/color][/font]"
+                size_hint: (None,None)
+                pos: (115,275)
+                font_size: '18px'
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]2. Instruct the patient to breathe normally through the mouthpiece.Press the Start button\nto start the test. The patient’s breathing efforts are displayed immediately on the screen.\nThe message bar will read (Waiting for Four Tidal Breaths).[/color][/font]"
+                size_hint: (None,None)
+                pos: (360,215)
+                font_size: '18px'
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]3.After obtaining a stable breathing pattern with a minimum of four tidal breaths,\ninstruct the patient to inspire slowly and maximally then exhale slowly and maximally.[/color][/font]"
+                size_hint: (None,None)
+                pos: (347,142)
+                font_size: '18px'
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]4.Instruct the patient to return to normal breathing, then press the Stop button\nto end the test. The results in the data table are displayed immediately.[/color][/font]"
+                size_hint: (None,None)
+                pos: (318,78)
+                font_size: '18px'
+            Button:
+                background_color: [0,0,200,0.8]
+		        markup: True
+		        text: "[color=#ffffff][b]NEXT[/b][/color]"
+		        size_hint: (None,None)
+		        height: 45
+                width: 100
+                pos: (650,60)
+                on_press: root.manager.current = "SvcInfo2_Screen"
+
+
+    FloatLayout:
+        Button:
+            id: exit_btn
+            size_hint: (None,None)
+            height: 20
+            width: 20
+            background_color: [1,1,1,0]
+            on_press : root.exit_prog()
+            pos: (763,450)
+            canvas:
+                Rectangle:
+                    source:"Resources/exit_btn.png"
+                    pos: self.pos
+                    size: self.size
+        Button:
+            id: back_btn
+            size_hint: (None,None)
+            height: 40
+            width: 40
+            background_color: [255,255,255,0]
+            pos: (10,4)
+            on_press: root.manager.current = 'PrePostTest_Screen'
+            canvas:
+                Rectangle:
+                    source:"Resources/back_btn.png"
+                    pos: self.pos
+                    size: self.size
+        Label:
+            markup: True
+            id: contact_us
+            text: "[font=OpenSans][color=#000000][u][ref=contact]Contact Us[/ref][/u][/color][/font]"
+            underlined : True
+            on_ref_press : root.manager.current = 'Contact_Screen'
+            size_hint: (None,None)
+            size: (50,50)
+            pos: (365,-5)

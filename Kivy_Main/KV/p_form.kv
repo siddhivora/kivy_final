@@ -1,0 +1,299 @@
+#: import Form form
+<FormScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.size
+        FloatLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,0,0.3
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,420)
+                Rectangle:
+                    size: (800,7)
+                    pos: (0,45)
+
+        FloatLayout:
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Patient id:[/color][/font]"
+                size_hint: (None,None)
+                pos: (55,415)
+            Label:
+                markup: True
+                text: "[color=#000000][font=OpenSans]Name:[/color][/font]"
+                size_hint: (None,None)
+                pos: (43,395)
+            Label:
+                id: p_id
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (120,415)
+            Label:
+                id: p_name
+                markup: True
+                text: "[color=#000000][font=OpenSans][/color][/font]"
+                size_hint: (None,None)
+                pos: (95,395)
+
+	    FloatLayout:
+	        Label:
+	            text: "First Name"
+                pos : (-307,365)
+                bold: True
+                color: [0,0,0,1]
+	        Label:
+                text: "Middle Name"
+                pos : (-30,365)
+                bold: True
+                color: [0,0,0,1]
+	        Label:
+                text: "Last Name"
+                pos : (236,365)
+                bold: True
+                color: [0,0,0,1]
+            Label:
+                text: "[color=#FF0000]Note:[/color] [color=#3b3838]All Fields Are Required.[/color]"
+                markup: True
+                pos: (0,85)
+
+        FloatLayout:
+            p_fname: p_fname
+            p_mname: p_mname
+            p_lname: p_lname
+	        TextInput:
+	            id: p_fname
+		        hint_text: "Enter First Name"
+		        multiline: False
+		        size_hint: (None,None)
+		        height: 30
+		        width: 170
+		        pos : (60,343)
+		        use_bubble: True
+	        TextInput:
+		        id: p_mname
+		        hint_text: "Enter Middle Name"
+		        multiline: False
+		        size_hint: (None,None)
+		        height: 30
+		        width: 170
+		        pos : (325,343)
+		        use_bubble: True
+	        TextInput:
+		        id: p_lname
+		        hint_text: "Enter Last Name"
+		        multiline: False
+		        size_hint: (None,None)
+		        height: 30
+		        width: 170
+		        pos : (600,343)
+                use_bubble: True
+	    FloatLayout:
+	        Label:
+		        text:'Date Of Birth'
+		        pos : (-298,280)
+                bold: True
+                color: [0,0,0,1]
+	        Label:
+		        text:'Height'
+		        pos : (-50,280)
+                bold: True
+                color: [0,0,0,1]
+	        Label:
+		        text: 'Weight'
+		        pos : (228,280)
+                bold: True
+                color: [0,0,0,1]
+	    FloatLayout:
+	        p_dob: p_dob
+	        p_weight: p_weight
+	        p_height: p_height
+	        TextInput:
+		        id: p_dob
+		        hint_text: "Enter D.O.B(dd/mm/yyyy)"
+		        multiline: False
+		        size_hint: (None,None)
+		        height: 30
+		        width: 180
+		        pos: (60,250)
+		        use_bubble: True
+		        input_filter: lambda text, from_undo: text[:10 - len(self.text)]
+	        TextInput:
+		        id: p_height
+		        hint_text: "Enter Height(in cm)"
+		        multiline: False
+		        size_hint: (None,None)
+		        height: 30
+		        width: 170
+		        pos: (325,250)
+		        use_bubble: True
+		        input_filter: lambda text, from_undo: text[:3 - len(self.text)]
+	        TextInput:
+		        id: p_weight
+		        hint_text: "Enter Weight(in kg)"
+		        multiline: False
+		        size_hint: (None,None)
+		        height: 30
+		        width: 170
+		        pos: (600,250)
+		        use_bubble: True
+		        input_filter: lambda text, from_undo: text[:3 - len(self.text)]
+
+	    FloatLayout:
+	        p_age: p_age
+	        p_smoke_yes: p_smoke_yes
+	        p_smoke_no: p_smoke_no
+	        p_gender_m: p_gender_m
+	        p_gender_f: p_gender_f
+	        p_gender_o: p_gender_o
+	        Label:
+		        text: "Gender"
+		        bold: True
+		        pos: (-310,180)
+                color: [0,0,0,1]
+		    Label:
+		        text: "Age"
+		        pos: (-60,180)
+                bold: True
+                color: [0,0,0,1]
+		    Label:
+		        text: "Do you smoke?"
+		        pos: (250,180)
+                bold: True
+                color: [0,0,0,1]
+		    TextInput:
+		        id: p_age
+		        pos: (325,155)
+		        disabled: True
+		        disabled_foreground_color: [0,0,0,1]
+		        size_hint: (None,None)
+		        height: 30
+		        width: 95
+            CheckBox:
+                id: p_gender_m
+                group: "gender_rb"
+                pos: (-323,151)
+                color: [0,0,0,1]
+            Label:
+                text: "Male"
+                pos: (-292,151)
+                color: [0,0,0,1]
+            CheckBox:
+                id: p_gender_f
+                group: "gender_rb"
+                pos: (-323,121)
+                color: [0,0,0,1]
+            Label:
+                text: "Female"
+                pos: (-286,121)
+                color: [0,0,0,1]
+            CheckBox:
+                id: p_gender_o
+                group: "gender_rb"
+                pos: (-323,91)
+                color: [0,0,0,1]
+            Label:
+                text: "Other"
+                pos: (-292,91)
+                color: [0,0,0,1]
+            CheckBox:
+                id: p_smoke_yes
+                group: "smoke_rb"
+                value: root.yes
+                pos: (560,138)
+                color: [0,0,0,1]
+                size_hint: (None,None)
+            Label:
+                text: "Yes"
+                pos: (235,150)
+                color: [0,0,0,1]
+            CheckBox:
+                id: p_smoke_no
+                group: "smoke_rb"
+                value: root.no
+                pos: (611,138)
+                color: [0,0,0,1]
+                size_hint: (None,None)
+            Label:
+                text: "No"
+                pos: (283,150)
+                color: [0,0,0,1]
+            Button:
+                size_hint: (None,None)
+                size: (50,50)
+                background_color: [255,255,255,0]
+                pos: (7,430)
+                on_press: root.manager.current = "Home_Screen"
+                canvas:
+                    Rectangle:
+                        source: 'Resources/home_btn.png'
+                        size: (50,50)
+                        pos: self.pos
+
+	    FloatLayout:
+	        submit_btn: submit_btn
+	        cancel_btn: cancel_btn
+	        Button:
+		        id: submit_btn
+		        background_color: [0,0,200,0.8]
+		        markup: True
+		        text: "[color=#ffffff][b]Submit[/b][/color]"
+		        size_hint: (None,None)
+		        height: 38
+                width: 100
+                pos: (280,60)
+                on_press: root.submit_popup()
+	        Button:
+		        id: cancel_btn
+		        background_color: [0,0,200,.8]
+		        markup: True
+		        text: "[color=#ffffff][b]Cancel[/b][/color]"
+                size_hint: (None,None)
+                height: 38
+                width: 100
+                pos: (400,60)
+                on_press : root.exit_prog()
+                color: [1,1,1,1]
+
+    FloatLayout
+        Button:
+            id: exit_btn
+            size_hint: (None,None)
+            height: 20
+            width: 20
+            background_color: [1,1,1,0]
+            on_press : root.exit_prog()
+            pos: (763,450)
+            canvas:
+                Rectangle:
+                    source:"Resources/exit_btn.png"
+                    pos: self.pos
+                    size: self.size
+        Button:
+            id: back_btn
+            size_hint: (None,None)
+            height: 40
+            width: 40
+            background_color: [255,255,255,0]
+            pos: (10,4)
+            on_press: root.manager.current = 'Registration_Screen'
+            canvas:
+                Rectangle:
+                    source:"Resources/back_btn.png"
+                    pos: self.pos
+                    size: self.size
+        Label:
+            markup: True
+            id: contact_us
+            text: "[font=OpenSans][color=#000000][u][ref=contact]Contact Us[/ref][/u][/color][/font]"
+            underlined : True
+            on_ref_press : root.manager.current = 'Contact_Screen'
+            size_hint: (None,None)
+            size: (50,50)
+            pos: (365,-5)
